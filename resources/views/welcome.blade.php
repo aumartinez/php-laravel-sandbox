@@ -54,7 +54,9 @@
                               <label for="email">Email</label>
                               <input type="text" class="form-control" id="email" placeholder="Email" name="email">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">
+                            Save
+                            </button>
                           </fieldset>                          
                         </form>
                       </div>
