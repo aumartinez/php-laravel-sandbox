@@ -43,19 +43,24 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="card">
                       <div class="card-body">
-                        <h2 class="card-title text-center">Add New User</h2>
+                        <h2 class="card-title text-center">
+                        <a href="/">
+                          <i class="fa-solid fa-house"></i>
+                        </a>
+                        Edit User
+                        </h2>
                         
-                        <form action="/Person/store" method="post">
+                        <form action="/Person/update/{{$person->id}}" method="post">
                           <fieldset>
                             @csrf
                             <legend></legend>
                             <div class="form-group">
                               <label for="name">Name</label>
-                              <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Name and last name" />
+                              <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Name and last name" value="{{$person->name}}" />
                             </div>
                             <div class="form-group">
                               <label for="email">Email</label>
-                              <input type="text" class="form-control" id="email" placeholder="Email" name="email" />
+                              <input type="text" class="form-control" id="email" placeholder="Email" name="email" value="{{$person->email}}" />
                             </div>
                             <button type="submit" class="btn btn-primary btn-long">
                             Save
@@ -64,37 +69,6 @@
                         </form>
                       </div>
                     </div>
-                </div>
-                
-                <div class="col-md-6 offset-md-3">
-                  <h2 class="text-center pt-5">
-                    Database results
-                  </h2>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($people as $person)
-                         <tr>
-                           <td>
-                            {{$person->name}}
-                           </td>
-                           <td>
-                            {{$person->email}}
-                           </td>
-                           <td>
-                             <a href="/Person/edit/{{$person->id}}" class="btn btn-primary">Edit</a>
-                             <a href="/Person/delete/{{$person->id}}" class="btn btn-primary">Delete</a>
-                           </td>
-                         </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
                 </div>
             </div>
         </div>

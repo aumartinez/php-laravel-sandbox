@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class,'index']);
+Route::post('/Person/store', [App\Http\Controllers\PersonController::class, 'store']);
+Route::post('/Person/update/{id}', [App\Http\Controllers\PersonController::class, 'update']);
+
+Route::get('/Person/edit/{id}', [App\Http\Controllers\PersonController::class, 'edit']);
+Route::get('/Person/delete/{id}', [App\Http\Controllers\PersonController::class, 'delete']);
